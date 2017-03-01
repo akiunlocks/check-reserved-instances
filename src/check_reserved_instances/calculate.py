@@ -65,7 +65,7 @@ def calculate_ec2_ris(account):
                     found_tag = False
                     if 'Tags' in instance:
                         for tag in instance['Tags']:
-                            if tag['Key'] == 'Name' and len(tag['Value']) > 0:
+                            if (tag['Key'] == 'Name' or tag['Key'] == 'application') and len(tag['Value']) > 0:
                                 instance_ids[(instance_type, az)].append(
                                     tag['Value'])
                                 found_tag = True
